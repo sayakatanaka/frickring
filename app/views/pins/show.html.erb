@@ -5,24 +5,32 @@
     <div class="thumbnail">
         
           <%= image_tag @pin.image.url(:medium)%>
-        
-      
+       
+                       
       <div class="caption">
+          
       
-        <p>
+        <p> 
               <h3><strong>Description:</strong></h3>
               <p><%= @pin.description %></p>
+              <p><strong><%= @pin.user.name if @pin.user %></strong></p>
+              
+              
+                <%= link_to pins_path(@pin) do%>
+              <p><span class="glyphicon glyphicon-backward"></span>
+                  　     back
+                        <% end %></p>
+                   
               
               <% if @pin.user == current_user %>
+              
                     <%= link_to edit_pin_path(@pin) do %>
                         <span class="glyphicon glyphicon-edit"></span>
                   　     Edit
                         <% end %>
-                  
-                    <%= link_to pins_path(@pin) do%>
-                       <span class="glyphicon glyphicon-backward"></span>
-                  　     back
-                        <% end %>
+                
+                 
+                   
             <% end %>
       </p>
     
